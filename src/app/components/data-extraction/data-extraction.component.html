@@ -1,0 +1,25 @@
+<div class="data-extraction">
+    <h2>Data Extraction</h2>
+    <div *ngIf="isLoading">
+      <p-progressBar [value]="loadingValue" ></p-progressBar>
+    </div>
+       <!-- Extract Data Button -->
+    <button *ngIf="!isLoading" (click)="extractDataFromImage()" [disabled]="isLoading || !image">
+      Extract Data
+    </button>
+    <!-- Display extracted data -->
+    <div *ngIf="extractedData && !isLoading" class="data-output">
+      <h3>Extracted Data:</h3>
+      <code>
+        <pre>{{ extractedData | json }}</pre>
+      </code>
+    </div>
+  
+    <!-- Display error message -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  
+ 
+</div>
+  
